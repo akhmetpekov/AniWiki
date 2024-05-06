@@ -18,6 +18,10 @@
 		034DEED52BE7D93000B29CB9 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEED42BE7D93000B29CB9 /* CharactersViewController.swift */; };
 		034DEED72BE7D93900B29CB9 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEED62BE7D93900B29CB9 /* TopViewController.swift */; };
 		034DEED92BE7D94900B29CB9 /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEED82BE7D94900B29CB9 /* AnimeViewController.swift */; };
+		034DEEDB2BE7DE5600B29CB9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEDA2BE7DE5600B29CB9 /* Service.swift */; };
+		034DEEDD2BE7DEB200B29CB9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEDC2BE7DEB200B29CB9 /* Request.swift */; };
+		034DEEDF2BE7DF4900B29CB9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEDE2BE7DF4900B29CB9 /* Endpoint.swift */; };
+		034DEEE32BE8D0CF00B29CB9 /* GetAllTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEE22BE8D0CF00B29CB9 /* GetAllTop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		034DEED42BE7D93000B29CB9 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		034DEED62BE7D93900B29CB9 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		034DEED82BE7D94900B29CB9 /* AnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewController.swift; sourceTree = "<group>"; };
+		034DEEDA2BE7DE5600B29CB9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		034DEEDC2BE7DEB200B29CB9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		034DEEDE2BE7DF4900B29CB9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		034DEEE22BE8D0CF00B29CB9 /* GetAllTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllTop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +99,8 @@
 		034DEEC92BE7D69900B29CB9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				034DEECE2BE7D89A00B29CB9 /* Anime.swift */,
-				034DEED02BE7D8A300B29CB9 /* Characters.swift */,
-				034DEED22BE7D8A900B29CB9 /* Top.swift */,
+				034DEEE12BE8D09300B29CB9 /* APIREsponseTypes */,
+				034DEEE02BE8D08400B29CB9 /* DataTypes */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +122,9 @@
 		034DEECC2BE7D6EC00B29CB9 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				034DEEDA2BE7DE5600B29CB9 /* Service.swift */,
+				034DEEDC2BE7DEB200B29CB9 /* Request.swift */,
+				034DEEDE2BE7DF4900B29CB9 /* Endpoint.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -128,6 +138,24 @@
 				034DEEB62BE7D5CA00B29CB9 /* SceneDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		034DEEE02BE8D08400B29CB9 /* DataTypes */ = {
+			isa = PBXGroup;
+			children = (
+				034DEECE2BE7D89A00B29CB9 /* Anime.swift */,
+				034DEED02BE7D8A300B29CB9 /* Characters.swift */,
+				034DEED22BE7D8A900B29CB9 /* Top.swift */,
+			);
+			path = DataTypes;
+			sourceTree = "<group>";
+		};
+		034DEEE12BE8D09300B29CB9 /* APIREsponseTypes */ = {
+			isa = PBXGroup;
+			children = (
+				034DEEE22BE8D0CF00B29CB9 /* GetAllTop.swift */,
+			);
+			path = APIREsponseTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,11 +232,15 @@
 				034DEECF2BE7D89A00B29CB9 /* Anime.swift in Sources */,
 				034DEEB92BE7D5CA00B29CB9 /* TabViewController.swift in Sources */,
 				034DEEB52BE7D5CA00B29CB9 /* AppDelegate.swift in Sources */,
+				034DEEDD2BE7DEB200B29CB9 /* Request.swift in Sources */,
 				034DEED72BE7D93900B29CB9 /* TopViewController.swift in Sources */,
+				034DEEDF2BE7DF4900B29CB9 /* Endpoint.swift in Sources */,
 				034DEED32BE7D8A900B29CB9 /* Top.swift in Sources */,
 				034DEEB72BE7D5CA00B29CB9 /* SceneDelegate.swift in Sources */,
+				034DEEDB2BE7DE5600B29CB9 /* Service.swift in Sources */,
 				034DEED92BE7D94900B29CB9 /* AnimeViewController.swift in Sources */,
 				034DEED12BE7D8A300B29CB9 /* Characters.swift in Sources */,
+				034DEEE32BE8D0CF00B29CB9 /* GetAllTop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

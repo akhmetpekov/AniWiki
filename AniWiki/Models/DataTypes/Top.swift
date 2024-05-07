@@ -1,36 +1,39 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  Top.swift
-//  AniWiki
+//   let top = try? JSONDecoder().decode(Top.self, from: jsonData)
+
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  Created by Erik on 05.05.2024.
-//
+//   let top = try? JSONDecoder().decode(Top.self, from: jsonData)
 
 import Foundation
 
-
-// MARK: - Datum
+// MARK: - Top
 struct Top: Codable {
-    let malID: Int
-    let url: String
-    let images: [String: Image]
-    let trailer: Trailer
-    let approved: Bool
-    let titles: [Title]
-    let title, titleEnglish, titleJapanese: String
-    let titleSynonyms: [String]
-    let type, source: String
-    let episodes: Int
-    let status: String
-    let airing: Bool
-    let aired: Aired
-    let duration, rating: String
-    let score, scoredBy, rank, popularity: Int
-    let members, favorites: Int
-    let synopsis, background, season: String
-    let year: Int
-    let broadcast: Broadcast
-    let producers, licensors, studios, genres: [Demographic]
-    let explicitGenres, themes, demographics: [Demographic]
+    let malID: Int?
+    let url: String?
+    let images: [String: Image]?
+    let trailer: Trailer?
+    let approved: Bool?
+    let titles: [Title]?
+    let title, titleEnglish, titleJapanese: String?
+    let titleSynonyms: [String]?
+    let type, source: String?
+    let episodes: Int?
+    let status: String?
+    let airing: Bool?
+    let aired: Aired?
+    let duration, rating: String?
+    let score: Double?
+    let scoredBy, rank, popularity: Int?
+    let members, favorites: Int?
+    let synopsis, background, season: String?
+    let year: Int?
+    let broadcast: Broadcast?
+    let producers, licensors, studios, genres: [Demographic]?
+    let explicitGenres, themes, demographics: [Demographic]?
 
     enum CodingKeys: String, CodingKey {
         case malID = "mal_id"
@@ -48,30 +51,30 @@ struct Top: Codable {
 
 // MARK: - Aired
 struct Aired: Codable {
-    let from, to: String
-    let prop: Prop
+    let from, to: String?
+    let prop: Prop?
 }
 
 // MARK: - Prop
 struct Prop: Codable {
-    let from, to: From
-    let string: String
+    let from, to: From?
+    let string: String?
 }
 
 // MARK: - From
 struct From: Codable {
-    let day, month, year: Int
+    let day, month, year: Int?
 }
 
 // MARK: - Broadcast
 struct Broadcast: Codable {
-    let day, time, timezone, string: String
+    let day, time, timezone, string: String?
 }
 
 // MARK: - Demographic
 struct Demographic: Codable {
-    let malID: Int
-    let type, name, url: String
+    let malID: Int?
+    let type, name, url: String?
 
     enum CodingKeys: String, CodingKey {
         case malID = "mal_id"
@@ -81,7 +84,7 @@ struct Demographic: Codable {
 
 // MARK: - Image
 struct Image: Codable {
-    let imageURL, smallImageURL, largeImageURL: String
+    let imageURL, smallImageURL, largeImageURL: String?
 
     enum CodingKeys: String, CodingKey {
         case imageURL = "image_url"
@@ -92,12 +95,12 @@ struct Image: Codable {
 
 // MARK: - Title
 struct Title: Codable {
-    let type, title: String
+    let type, title: String?
 }
 
 // MARK: - Trailer
 struct Trailer: Codable {
-    let youtubeID, url, embedURL: String
+    let youtubeID, url, embedURL: String?
 
     enum CodingKeys: String, CodingKey {
         case youtubeID = "youtube_id"
@@ -106,13 +109,4 @@ struct Trailer: Codable {
     }
 }
 
-// MARK: - Items
-struct Items: Codable {
-    let count, total, perPage: Int
-
-    enum CodingKeys: String, CodingKey {
-        case count, total
-        case perPage = "per_page"
-    }
-}
 

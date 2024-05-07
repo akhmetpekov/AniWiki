@@ -12,10 +12,10 @@ final class TopViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        Service.shared.execute(.listTopRequests, expecting: Top.self) { result in
+        Service.shared.execute(.listTopRequests, expecting: GetAllTop.self) { result in
             switch result {
             case .success(let model):
-                print(String(describing: model))
+                print(model.data[0].title)
             case .failure(let error):
                 print(String(describing: error))
             }

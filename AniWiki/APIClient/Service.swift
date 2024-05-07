@@ -38,8 +38,6 @@ final class Service {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let result = try decoder.decode(type.self, from: data)
                 completion(.success(result))
-//                let json = try JSONSerialization.jsonObject(with: data)
-//                print(String(describing: json))
             } catch {
                 completion(.failure(error))
             }

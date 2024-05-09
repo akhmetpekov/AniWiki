@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033C05D02BEA5BDE00D626CE /* TopListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05CF2BEA5BDE00D626CE /* TopListViewViewModel.swift */; };
+		033C05D22BEA5C6600D626CE /* TopAnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05D12BEA5C6600D626CE /* TopAnimeListView.swift */; };
+		033C05D42BEA73A800D626CE /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05D32BEA73A800D626CE /* TopCollectionViewCell.swift */; };
+		033C05D62BEA74B700D626CE /* TopCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05D52BEA74B700D626CE /* TopCollectionViewCellViewModel.swift */; };
 		034DEEB52BE7D5CA00B29CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEB42BE7D5CA00B29CB9 /* AppDelegate.swift */; };
 		034DEEB72BE7D5CA00B29CB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEB62BE7D5CA00B29CB9 /* SceneDelegate.swift */; };
 		034DEEB92BE7D5CA00B29CB9 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEB82BE7D5CA00B29CB9 /* TabViewController.swift */; };
@@ -22,9 +26,14 @@
 		034DEEDD2BE7DEB200B29CB9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEDC2BE7DEB200B29CB9 /* Request.swift */; };
 		034DEEDF2BE7DF4900B29CB9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEDE2BE7DF4900B29CB9 /* Endpoint.swift */; };
 		034DEEE32BE8D0CF00B29CB9 /* GetAllTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DEEE22BE8D0CF00B29CB9 /* GetAllTop.swift */; };
+		147592355B1ECD9423EA9A33 /* Pods_AniWiki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EBD18299460EBAD2220A32 /* Pods_AniWiki.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		033C05CF2BEA5BDE00D626CE /* TopListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListViewViewModel.swift; sourceTree = "<group>"; };
+		033C05D12BEA5C6600D626CE /* TopAnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAnimeListView.swift; sourceTree = "<group>"; };
+		033C05D32BEA73A800D626CE /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
+		033C05D52BEA74B700D626CE /* TopCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		034DEEB12BE7D5CA00B29CB9 /* AniWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034DEEB42BE7D5CA00B29CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		034DEEB62BE7D5CA00B29CB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +51,9 @@
 		034DEEDC2BE7DEB200B29CB9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		034DEEDE2BE7DF4900B29CB9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		034DEEE22BE8D0CF00B29CB9 /* GetAllTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllTop.swift; sourceTree = "<group>"; };
+		4D67557A8AB749570A50EF33 /* Pods-AniWiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniWiki.debug.xcconfig"; path = "Target Support Files/Pods-AniWiki/Pods-AniWiki.debug.xcconfig"; sourceTree = "<group>"; };
+		A7EBD18299460EBAD2220A32 /* Pods_AniWiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AniWiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC3827FF0DDF35646A2A32DF /* Pods-AniWiki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AniWiki.release.xcconfig"; path = "Target Support Files/Pods-AniWiki/Pods-AniWiki.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				147592355B1ECD9423EA9A33 /* Pods_AniWiki.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +73,8 @@
 			children = (
 				034DEEB32BE7D5CA00B29CB9 /* AniWiki */,
 				034DEEB22BE7D5CA00B29CB9 /* Products */,
+				FAC63407661B80F637914BE0 /* Pods */,
+				24F7776E4C5354CE953E4538 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +114,7 @@
 		034DEEC92BE7D69900B29CB9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				034DEEE12BE8D09300B29CB9 /* APIREsponseTypes */,
+				034DEEE12BE8D09300B29CB9 /* APIResponseTypes */,
 				034DEEE02BE8D08400B29CB9 /* DataTypes */,
 			);
 			path = Models;
@@ -108,6 +123,8 @@
 		034DEECA2BE7D6A000B29CB9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				033C05D12BEA5C6600D626CE /* TopAnimeListView.swift */,
+				033C05D32BEA73A800D626CE /* TopCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,6 +132,8 @@
 		034DEECB2BE7D6A700B29CB9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				033C05CF2BEA5BDE00D626CE /* TopListViewViewModel.swift */,
+				033C05D52BEA74B700D626CE /* TopCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -150,12 +169,29 @@
 			path = DataTypes;
 			sourceTree = "<group>";
 		};
-		034DEEE12BE8D09300B29CB9 /* APIREsponseTypes */ = {
+		034DEEE12BE8D09300B29CB9 /* APIResponseTypes */ = {
 			isa = PBXGroup;
 			children = (
 				034DEEE22BE8D0CF00B29CB9 /* GetAllTop.swift */,
 			);
-			path = APIREsponseTypes;
+			path = APIResponseTypes;
+			sourceTree = "<group>";
+		};
+		24F7776E4C5354CE953E4538 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7EBD18299460EBAD2220A32 /* Pods_AniWiki.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAC63407661B80F637914BE0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D67557A8AB749570A50EF33 /* Pods-AniWiki.debug.xcconfig */,
+				FC3827FF0DDF35646A2A32DF /* Pods-AniWiki.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 034DEEC52BE7D5CC00B29CB9 /* Build configuration list for PBXNativeTarget "AniWiki" */;
 			buildPhases = (
+				A152D84EC08AB0DA39DF389F /* [CP] Check Pods Manifest.lock */,
 				034DEEAD2BE7D5CA00B29CB9 /* Sources */,
 				034DEEAE2BE7D5CA00B29CB9 /* Frameworks */,
 				034DEEAF2BE7D5CA00B29CB9 /* Resources */,
+				53DFCBBFBC7E4B0C0411AF70 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,16 +261,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		53DFCBBFBC7E4B0C0411AF70 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AniWiki/Pods-AniWiki-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AniWiki/Pods-AniWiki-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AniWiki/Pods-AniWiki-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A152D84EC08AB0DA39DF389F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AniWiki-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		034DEEAD2BE7D5CA00B29CB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033C05D42BEA73A800D626CE /* TopCollectionViewCell.swift in Sources */,
 				034DEED52BE7D93000B29CB9 /* CharactersViewController.swift in Sources */,
+				033C05D22BEA5C6600D626CE /* TopAnimeListView.swift in Sources */,
 				034DEECF2BE7D89A00B29CB9 /* Anime.swift in Sources */,
 				034DEEB92BE7D5CA00B29CB9 /* TabViewController.swift in Sources */,
 				034DEEB52BE7D5CA00B29CB9 /* AppDelegate.swift in Sources */,
 				034DEEDD2BE7DEB200B29CB9 /* Request.swift in Sources */,
+				033C05D02BEA5BDE00D626CE /* TopListViewViewModel.swift in Sources */,
+				033C05D62BEA74B700D626CE /* TopCollectionViewCellViewModel.swift in Sources */,
 				034DEED72BE7D93900B29CB9 /* TopViewController.swift in Sources */,
 				034DEEDF2BE7DF4900B29CB9 /* Endpoint.swift in Sources */,
 				034DEED32BE7D8A900B29CB9 /* Top.swift in Sources */,
@@ -295,7 +379,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -358,7 +442,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -379,6 +463,7 @@
 		};
 		034DEEC62BE7D5CC00B29CB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D67557A8AB749570A50EF33 /* Pods-AniWiki.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -406,6 +491,7 @@
 		};
 		034DEEC72BE7D5CC00B29CB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC3827FF0DDF35646A2A32DF /* Pods-AniWiki.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

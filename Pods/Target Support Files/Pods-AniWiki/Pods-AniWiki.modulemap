@@ -1,0 +1,6 @@
+framework module Pods_AniWiki {
+  umbrella header "Pods-AniWiki-umbrella.h"
+
+  export *
+  module * { export * }
+}

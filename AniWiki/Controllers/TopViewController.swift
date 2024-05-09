@@ -6,20 +6,29 @@
 //
 
 import UIKit
+import SnapKit
 
 final class TopViewController: UIViewController {
+    
+    private let topAnimeListView = TopAnimeListView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
-        Service.shared.execute(.listTopRequests, expecting: GetAllTop.self) { result in
-            switch result {
-            case .success(let model):
-                print(model.data[0].title)
-            case .failure(let error):
-                print(String(describing: error))
-            }
+        setupUI()
+        configureConstraints()
+    }
+    
+    private func setupUI() {
+        view.addSubview(topAnimeListView)
+    }
+    
+    private func configureConstraints() {
+        topAnimeListView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
-        
     }
 }

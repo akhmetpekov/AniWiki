@@ -1,20 +1,10 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let top = try? JSONDecoder().decode(Top.self, from: jsonData)
-
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let top = try? JSONDecoder().decode(Top.self, from: jsonData)
-
 import Foundation
 
 // MARK: - Top
 struct Top: Codable {
     let malID: Int?
     let url: String?
-    let images: [String: Image]?
+    let images: Image?
     let trailer: Trailer?
     let approved: Bool?
     let titles: [Title]?
@@ -84,8 +74,27 @@ struct Demographic: Codable {
 
 // MARK: - Image
 struct Image: Codable {
-    let imageURL, smallImageURL, largeImageURL: String?
+    let jpg: Jpg?
+    let webp: Webp?
+}
 
+struct Jpg: Codable {
+    let imageURL: String?
+    let smallImageURL: String?
+    let largeImageURL: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case imageURL = "image_url"
+        case smallImageURL = "small_image_url"
+        case largeImageURL = "large_image_url"
+    }
+}
+
+struct Webp: Codable {
+    let imageURL: String?
+    let smallImageURL: String?
+    let largeImageURL: String?
+    
     enum CodingKeys: String, CodingKey {
         case imageURL = "image_url"
         case smallImageURL = "small_image_url"

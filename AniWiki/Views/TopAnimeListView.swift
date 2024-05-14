@@ -8,7 +8,13 @@
 import UIKit
 import SnapKit
 
+protocol TopAnimeListViewDelegate: AnyObject {
+    func topAnimeListView(_ topAnimeListView: TopAnimeListView, didSelectAnime anime: Top)
+}
+
 final class TopAnimeListView: UIView {
+    
+    public weak var delegate: TopAnimeListViewDelegate?
     
     private let viewModel = TopListViewViewModel()
     
@@ -33,6 +39,7 @@ final class TopAnimeListView: UIView {
         setupUI()
         configureConstraints()
         setupCollectionView()
+        viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -61,15 +68,22 @@ final class TopAnimeListView: UIView {
     private func setupCollectionView() {
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
-            self.spinner.stopAnimating()
-            
-            self.collectionView.isHidden = false
-            
-            UIView.animate(withDuration: 0.4) {
-                self.collectionView.alpha = 1
-            }
-        })
     }
+}
+
+extension TopAnimeListView: TopListViewViewModelDelegate {
+    func didSelectAnime(_ anime: Top) {
+        delegate?.topAnimeListView(self, didSelectAnime: anime)
+    }
+    
+    func didLoadTopAnime() {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+        UIView.animate(withDuration: 0.4) {
+            self.collectionView.alpha = 1
+        }
+    }
+    
+    
 }

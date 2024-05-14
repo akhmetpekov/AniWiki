@@ -10,10 +10,12 @@ import Foundation
 final class TopCollectionViewCellViewModel {
     
     public let animeTitle: String
+    public let topNumber: String
     private let animeImageURL: URL?
     
-    init(animeTitle: String, animeImageURL: URL?) {
+    init(animeTitle: String, animeImageURL: URL?, topNumber: String) {
         self.animeTitle = animeTitle
+        self.topNumber = topNumber
         self.animeImageURL = animeImageURL
     }
     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0305E7D72BF261D30089AD95 /* AnimeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305E7D62BF261D30089AD95 /* AnimeDetailViewController.swift */; };
+		0305E7D92BF262500089AD95 /* AnimeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305E7D82BF262500089AD95 /* AnimeDetailView.swift */; };
+		0305E7DB2BF2626A0089AD95 /* AnimeDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305E7DA2BF2626A0089AD95 /* AnimeDetailViewViewModel.swift */; };
 		033C05D02BEA5BDE00D626CE /* TopListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05CF2BEA5BDE00D626CE /* TopListViewViewModel.swift */; };
 		033C05D22BEA5C6600D626CE /* TopAnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05D12BEA5C6600D626CE /* TopAnimeListView.swift */; };
 		033C05D42BEA73A800D626CE /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05D32BEA73A800D626CE /* TopCollectionViewCell.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0305E7D62BF261D30089AD95 /* AnimeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewController.swift; sourceTree = "<group>"; };
+		0305E7D82BF262500089AD95 /* AnimeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailView.swift; sourceTree = "<group>"; };
+		0305E7DA2BF2626A0089AD95 /* AnimeDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewViewModel.swift; sourceTree = "<group>"; };
 		033C05CF2BEA5BDE00D626CE /* TopListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListViewViewModel.swift; sourceTree = "<group>"; };
 		033C05D12BEA5C6600D626CE /* TopAnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAnimeListView.swift; sourceTree = "<group>"; };
 		033C05D32BEA73A800D626CE /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -68,6 +74,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0305E7D52BF261AD0089AD95 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				034DEEB82BE7D5CA00B29CB9 /* TabViewController.swift */,
+				034DEED42BE7D93000B29CB9 /* CharactersViewController.swift */,
+				034DEED62BE7D93900B29CB9 /* TopViewController.swift */,
+				034DEED82BE7D94900B29CB9 /* AnimeViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		034DEEA82BE7D5CA00B29CB9 = {
 			isa = PBXGroup;
 			children = (
@@ -103,10 +120,8 @@
 		034DEEC82BE7D69200B29CB9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				034DEEB82BE7D5CA00B29CB9 /* TabViewController.swift */,
-				034DEED42BE7D93000B29CB9 /* CharactersViewController.swift */,
-				034DEED62BE7D93900B29CB9 /* TopViewController.swift */,
-				034DEED82BE7D94900B29CB9 /* AnimeViewController.swift */,
+				0305E7D52BF261AD0089AD95 /* Core */,
+				0305E7D62BF261D30089AD95 /* AnimeDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -125,6 +140,7 @@
 			children = (
 				033C05D12BEA5C6600D626CE /* TopAnimeListView.swift */,
 				033C05D32BEA73A800D626CE /* TopCollectionViewCell.swift */,
+				0305E7D82BF262500089AD95 /* AnimeDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,6 +150,7 @@
 			children = (
 				033C05CF2BEA5BDE00D626CE /* TopListViewViewModel.swift */,
 				033C05D52BEA74B700D626CE /* TopCollectionViewCellViewModel.swift */,
+				0305E7DA2BF2626A0089AD95 /* AnimeDetailViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -313,6 +330,7 @@
 				033C05D22BEA5C6600D626CE /* TopAnimeListView.swift in Sources */,
 				034DEECF2BE7D89A00B29CB9 /* Anime.swift in Sources */,
 				034DEEB92BE7D5CA00B29CB9 /* TabViewController.swift in Sources */,
+				0305E7DB2BF2626A0089AD95 /* AnimeDetailViewViewModel.swift in Sources */,
 				034DEEB52BE7D5CA00B29CB9 /* AppDelegate.swift in Sources */,
 				034DEEDD2BE7DEB200B29CB9 /* Request.swift in Sources */,
 				033C05D02BEA5BDE00D626CE /* TopListViewViewModel.swift in Sources */,
@@ -320,10 +338,12 @@
 				034DEED72BE7D93900B29CB9 /* TopViewController.swift in Sources */,
 				034DEEDF2BE7DF4900B29CB9 /* Endpoint.swift in Sources */,
 				034DEED32BE7D8A900B29CB9 /* Top.swift in Sources */,
+				0305E7D72BF261D30089AD95 /* AnimeDetailViewController.swift in Sources */,
 				034DEEB72BE7D5CA00B29CB9 /* SceneDelegate.swift in Sources */,
 				034DEEDB2BE7DE5600B29CB9 /* Service.swift in Sources */,
 				034DEED92BE7D94900B29CB9 /* AnimeViewController.swift in Sources */,
 				034DEED12BE7D8A300B29CB9 /* Characters.swift in Sources */,
+				0305E7D92BF262500089AD95 /* AnimeDetailView.swift in Sources */,
 				034DEEE32BE8D0CF00B29CB9 /* GetAllTop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

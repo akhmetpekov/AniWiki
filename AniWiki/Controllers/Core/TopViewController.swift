@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TopViewController: UIViewController {
+final class TopViewController: UIViewController, TopAnimeListViewDelegate {
     
     private let topAnimeListView = TopAnimeListView()
     
@@ -20,6 +20,7 @@ final class TopViewController: UIViewController {
     }
     
     private func setupUI() {
+        topAnimeListView.delegate = self
         view.addSubview(topAnimeListView)
     }
     
@@ -31,4 +32,11 @@ final class TopViewController: UIViewController {
             make.trailing.equalToSuperview()
         }
     }
+    
+    func topAnimeListView(_ topAnimeListView: TopAnimeListView, didSelectAnime anime: Top) {
+        let viewModel = AnimeDetailViewViewModel(anime: anime)
+        let detailVC = AnimeDetailViewController(viewModel: viewModel)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
 }

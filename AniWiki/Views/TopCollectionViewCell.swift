@@ -20,14 +20,24 @@ final class TopCollectionViewCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.numberOfLines = 0
         return label
     }()
     
     private let bottomPlate: UIView = {
         let uiView = UIView()
-        uiView.backgroundColor = .clear
+        uiView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         return uiView
+    }()
+    
+    private let topNumber: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemCyan
+        label.font = .systemFont(ofSize: 15, weight: .bold)
+        label.backgroundColor = .white
+        label.textAlignment = .center
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -46,6 +56,9 @@ final class TopCollectionViewCell: UICollectionViewCell {
         gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradientLayer.frame = bounds
+        
+        topNumber.layer.masksToBounds = true
+        topNumber.layer.cornerRadius = 15
     }
     
     required init?(coder: NSCoder) {
@@ -56,6 +69,7 @@ final class TopCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         imageView.addSubview(bottomPlate)
         bottomPlate.addSubview(titleLabel)
+        imageView.addSubview(topNumber)
     }
     
     private func configureConstraints() {
@@ -67,7 +81,7 @@ final class TopCollectionViewCell: UICollectionViewCell {
         }
         
         bottomPlate.snp.makeConstraints { make in
-            make.height.equalTo(80)
+            make.height.equalTo(65)
             make.leading.trailing.bottom.equalTo(imageView)
         }
         
@@ -78,16 +92,25 @@ final class TopCollectionViewCell: UICollectionViewCell {
             make.bottom.equalToSuperview()
         }
         
+        topNumber.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(10)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
+        
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
         titleLabel.text = nil
+        topNumber.text = nil
     }
     
     public func configure(with viewModel: TopCollectionViewCellViewModel) {
         titleLabel.text = viewModel.animeTitle
+        topNumber.text = viewModel.topNumber
         viewModel.fetchImage { [weak self] result in
             switch result {
             case .success(let data):

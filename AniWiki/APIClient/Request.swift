@@ -48,7 +48,7 @@ final class Request {
     
     public let httpMethod = "GET"
     
-    init(endpoint: Endpoint, 
+    public init?(endpoint: Endpoint,
          pathComponents: [String] = [],
          queryParametes: [URLQueryItem] = []
     ) {

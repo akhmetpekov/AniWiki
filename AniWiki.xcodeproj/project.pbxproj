@@ -10,6 +10,7 @@
 		0305E7D72BF261D30089AD95 /* AnimeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305E7D62BF261D30089AD95 /* AnimeDetailViewController.swift */; };
 		0305E7D92BF262500089AD95 /* AnimeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305E7D82BF262500089AD95 /* AnimeDetailView.swift */; };
 		0305E7DB2BF2626A0089AD95 /* AnimeDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305E7DA2BF2626A0089AD95 /* AnimeDetailViewViewModel.swift */; };
+		0305E7E02BF3BA0A0089AD95 /* FooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305E7DF2BF3BA0A0089AD95 /* FooterLoadingCollectionReusableView.swift */; };
 		033C05D02BEA5BDE00D626CE /* TopListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05CF2BEA5BDE00D626CE /* TopListViewViewModel.swift */; };
 		033C05D22BEA5C6600D626CE /* TopAnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05D12BEA5C6600D626CE /* TopAnimeListView.swift */; };
 		033C05D42BEA73A800D626CE /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C05D32BEA73A800D626CE /* TopCollectionViewCell.swift */; };
@@ -36,6 +37,7 @@
 		0305E7D62BF261D30089AD95 /* AnimeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewController.swift; sourceTree = "<group>"; };
 		0305E7D82BF262500089AD95 /* AnimeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailView.swift; sourceTree = "<group>"; };
 		0305E7DA2BF2626A0089AD95 /* AnimeDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewViewModel.swift; sourceTree = "<group>"; };
+		0305E7DF2BF3BA0A0089AD95 /* FooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
 		033C05CF2BEA5BDE00D626CE /* TopListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListViewViewModel.swift; sourceTree = "<group>"; };
 		033C05D12BEA5C6600D626CE /* TopAnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAnimeListView.swift; sourceTree = "<group>"; };
 		033C05D32BEA73A800D626CE /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				033C05D12BEA5C6600D626CE /* TopAnimeListView.swift */,
 				033C05D32BEA73A800D626CE /* TopCollectionViewCell.swift */,
 				0305E7D82BF262500089AD95 /* AnimeDetailView.swift */,
+				0305E7DF2BF3BA0A0089AD95 /* FooterLoadingCollectionReusableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				034DEED72BE7D93900B29CB9 /* TopViewController.swift in Sources */,
 				034DEEDF2BE7DF4900B29CB9 /* Endpoint.swift in Sources */,
 				034DEED32BE7D8A900B29CB9 /* Top.swift in Sources */,
+				0305E7E02BF3BA0A0089AD95 /* FooterLoadingCollectionReusableView.swift in Sources */,
 				0305E7D72BF261D30089AD95 /* AnimeDetailViewController.swift in Sources */,
 				034DEEB72BE7D5CA00B29CB9 /* SceneDelegate.swift in Sources */,
 				034DEEDB2BE7DE5600B29CB9 /* Service.swift in Sources */,

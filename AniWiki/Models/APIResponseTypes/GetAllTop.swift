@@ -12,10 +12,12 @@ struct GetAllTop: Codable {
         let lastVisiblePage: Int?
         let hasNextPage: Bool?
         let items: Items?
+        let currentPage: Int?
 
         enum CodingKeys: String, CodingKey {
             case lastVisiblePage = "last_visible_page"
             case hasNextPage = "has_next_page"
+            case currentPage = "current_page"
             case items
         }
     }

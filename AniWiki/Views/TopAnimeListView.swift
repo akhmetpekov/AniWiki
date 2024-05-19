@@ -31,6 +31,7 @@ final class TopAnimeListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.register(TopCollectionViewCell.self, forCellWithReuseIdentifier: TopCollectionViewCell.cellIdentifier)
+        collectionView.register(FooterLoadingCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterLoadingCollectionReusableView.identifier)
         return collectionView
     }()
     
@@ -85,5 +86,10 @@ extension TopAnimeListView: TopListViewViewModelDelegate {
         }
     }
     
+    func didLoadMoreCharacters(with newIndexPaths: [IndexPath]) {
+        collectionView.performBatchUpdates {
+            self.collectionView.insertItems(at: newIndexPaths)
+        }
+    }
     
 }

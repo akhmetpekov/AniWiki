@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class TopCollectionViewCellViewModel {
+final class TopCollectionViewCellViewModel: Hashable, Equatable {
     
     public let animeTitle: String
     public let topNumber: String
@@ -34,5 +34,15 @@ final class TopCollectionViewCellViewModel {
             completion(.success(data))
         }
         task.resume()
+    }
+    
+    static func == (lhs: TopCollectionViewCellViewModel, rhs: TopCollectionViewCellViewModel) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(animeTitle)
+        hasher.combine(topNumber)
+        hasher.combine(animeImageURL)
     }
 }

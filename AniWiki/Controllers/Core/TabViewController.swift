@@ -12,6 +12,7 @@ final class TabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabs()
+        setInitialTab()
     }
     
     private func configureTabs() {
@@ -37,6 +38,10 @@ final class TabViewController: UITabBarController {
         let nav3 = UINavigationController(rootViewController: vc3)
         
         setViewControllers([nav1, nav2, nav3], animated: true)
+    }
+    
+    private func setInitialTab() {
+        self.selectedIndex = 1
     }
 
 

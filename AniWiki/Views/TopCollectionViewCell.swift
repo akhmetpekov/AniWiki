@@ -34,7 +34,7 @@ final class TopCollectionViewCell: UICollectionViewCell {
     private let topNumber: UILabel = {
         let label = UILabel()
         label.textColor = .systemCyan
-        label.font = .systemFont(ofSize: 15, weight: .bold)
+        label.font = .systemFont(ofSize: 14, weight: .bold)
         label.backgroundColor = .white
         label.textAlignment = .center
         return label

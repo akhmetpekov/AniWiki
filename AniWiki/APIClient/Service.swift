@@ -35,7 +35,6 @@ final class Service {
             
             do {
                 let decoder = JSONDecoder()
-//                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let result = try decoder.decode(type.self, from: data)
                 completion(.success(result))
             } catch {

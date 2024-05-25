@@ -7,5 +7,6 @@ target 'AniWiki' do
 
   # Pods for AniWiki
 pod 'SnapKit'
+pod "youtube-ios-player-helper"
 
 end

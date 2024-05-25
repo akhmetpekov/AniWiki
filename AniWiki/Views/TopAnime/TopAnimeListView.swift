@@ -28,9 +28,10 @@ final class TopAnimeListView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = Resources.Colors.primaryBackgroundColor
         collectionView.isHidden = true
         collectionView.alpha = 0
-        collectionView.register(TopCollectionViewCell.self, forCellWithReuseIdentifier: TopCollectionViewCell.cellIdentifier)
+        collectionView.register(TopAnimeCollectionViewCell.self, forCellWithReuseIdentifier: TopAnimeCollectionViewCell.cellIdentifier)
         collectionView.register(FooterLoadingCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterLoadingCollectionReusableView.identifier)
         return collectionView
     }()
@@ -48,6 +49,7 @@ final class TopAnimeListView: UIView {
     }
     
     private func setupUI() {
+        backgroundColor = Resources.Colors.primaryBackgroundColor
         addSubview(collectionView)
         addSubview(spinner)
         spinner.startAnimating()

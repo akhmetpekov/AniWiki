@@ -121,9 +121,9 @@ extension TopListViewViewModel: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: TopCollectionViewCell.cellIdentifier,
+            withReuseIdentifier: TopAnimeCollectionViewCell.cellIdentifier,
             for: indexPath
-        ) as? TopCollectionViewCell else {
+        ) as? TopAnimeCollectionViewCell else {
             fatalError()
         }
         let viewModel = cellViewModels[indexPath.row]

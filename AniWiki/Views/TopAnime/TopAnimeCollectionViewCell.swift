@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TopCollectionViewCell: UICollectionViewCell {
+final class TopAnimeCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "TopCollectionViewCell"
     
     private let imageView: UIImageView = {

@@ -14,7 +14,7 @@ final class TopViewController: UIViewController, TopAnimeListViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = Resources.Colors.tabbarBackgroundColor
         setupUI()
         configureConstraints()
     }
@@ -34,8 +34,8 @@ final class TopViewController: UIViewController, TopAnimeListViewDelegate {
     }
     
     func topAnimeListView(_ topAnimeListView: TopAnimeListView, didSelectAnime anime: Top) {
-        let viewModel = AnimeDetailViewViewModel(anime: anime)
-        let detailVC = AnimeDetailViewController(viewModel: viewModel)
+        let viewModel = TopAnimeDetailViewViewModel(anime: anime)
+        let detailVC = TopAnimeDetailViewController(viewModel: viewModel)
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

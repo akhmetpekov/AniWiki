@@ -37,6 +37,11 @@ final class TabViewController: UITabBarController {
         let nav2 = UINavigationController(rootViewController: vc2)
         let nav3 = UINavigationController(rootViewController: vc3)
         
+        tabBar.backgroundColor = Resources.Colors.tabbarBackgroundColor
+        tabBar.barTintColor = Resources.Colors.tabbarBackgroundColor
+        tabBar.tintColor = Resources.Colors.primaryTintColor
+        tabBar.unselectedItemTintColor = Resources.Colors.unselectedItemColor
+        
         setViewControllers([nav1, nav2, nav3], animated: true)
     }
     

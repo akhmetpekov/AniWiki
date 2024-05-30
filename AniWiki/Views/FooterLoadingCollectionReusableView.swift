@@ -28,7 +28,7 @@ final class FooterLoadingCollectionReusableView: UICollectionReusableView {
     }
     
     private func setupUI() {
-        backgroundColor = .systemBackground
+        backgroundColor = Resources.Colors.primaryBackgroundColor
         addSubview(spinner)
     }
     

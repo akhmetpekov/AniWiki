@@ -13,6 +13,8 @@ class TopAnimeDescriptionCollectionViewCell: UICollectionViewCell {
     private let descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = Resources.Colors.secondaryTextColor
+        textView.alpha = 0.6
+        textView.isEditable = false
         textView.backgroundColor = .clear
         textView.showsVerticalScrollIndicator = true
         textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -45,6 +47,7 @@ class TopAnimeDescriptionCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        descriptionTextView.text = nil
     }
     
     public func configure(with viewModel: TopAnimeDescriptionCollectionViewCellViewModel) {

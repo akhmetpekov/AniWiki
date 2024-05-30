@@ -33,7 +33,7 @@ final class TopAnimeCollectionViewCell: UICollectionViewCell {
     
     private let topNumber: UILabel = {
         let label = UILabel()
-        label.textColor = .systemCyan
+        label.textColor = Resources.Colors.primaryTintColor
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.backgroundColor = .white
         label.textAlignment = .center
@@ -49,14 +49,6 @@ final class TopAnimeCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        // Not Working Gradient
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.black.withAlphaComponent(1.0).cgColor,
-                                UIColor.black.withAlphaComponent(0.0).cgColor]
-        gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.frame = bounds
-        
         topNumber.layer.masksToBounds = true
         topNumber.layer.cornerRadius = 15
     }

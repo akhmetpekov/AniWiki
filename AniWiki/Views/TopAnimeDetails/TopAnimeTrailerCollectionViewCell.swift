@@ -54,6 +54,7 @@ class TopAnimeTrailerCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        videoPlayer.stopVideo()
     }
     
     public func configure(with viewModel: TopAnimeTrailerCollectionViewCellViewModel) {

@@ -53,23 +53,7 @@ extension TopAnimeDetailViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionType = viewModel.sections[section]
-        switch sectionType {
-        case .photo:
-            return 1
-        case .trailer:
-            return 1
-        case .information:
-            return 1
-        case .raiting:
-            return 1
-        case .studio:
-            return 1
-        case .description:
-            return 1
-        case .producers:
-            return 1
-        }
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -87,20 +71,8 @@ extension TopAnimeDetailViewController: UICollectionViewDelegate, UICollectionVi
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopAnimeInformationCollectionViewCell.identifier, for: indexPath) as? TopAnimeInformationCollectionViewCell else { fatalError() }
             cell.configure(with: viewModel)
             return cell
-        case .raiting(let viewModel):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopAnimeRaitingCollectionViewCell.identifier, for: indexPath) as? TopAnimeRaitingCollectionViewCell else { fatalError() }
-            cell.configure(with: viewModel)
-            return cell
-        case .studio(let viewModel):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopAnimeStudioCollectionViewCell.identifier, for: indexPath) as? TopAnimeStudioCollectionViewCell else { fatalError() }
-            cell.configure(with: viewModel)
-            return cell
         case .description(let viewModel):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopAnimeDescriptionCollectionViewCell.identifier, for: indexPath) as? TopAnimeDescriptionCollectionViewCell else { fatalError() }
-            cell.configure(with: viewModel)
-            return cell
-        case .producers(let viewModel):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopAnimeProducersCollectionViewCell.identifier, for: indexPath) as? TopAnimeProducersCollectionViewCell else { fatalError() }
             cell.configure(with: viewModel)
             return cell
         }
@@ -125,14 +97,8 @@ extension TopAnimeDetailViewController: UICollectionViewDelegate, UICollectionVi
             sectionTitle = "Trailer"
         case .information:
             sectionTitle = "Information"
-        case .raiting:
-            sectionTitle = "Raiting"
-        case .studio:
-            sectionTitle = "Studio"
         case .description:
             sectionTitle = "Description"
-        case .producers:
-            sectionTitle = "Producers"
         }
         sectionHeader.configureSectionCell(label: sectionTitle.capitalized)
         return sectionHeader

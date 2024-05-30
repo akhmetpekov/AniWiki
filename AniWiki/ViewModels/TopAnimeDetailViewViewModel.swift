@@ -14,10 +14,7 @@ final class TopAnimeDetailViewViewModel {
         case photo(viewModel: TopAnimePhotoCollectionViewCellViewModel)
         case trailer(viewModel: TopAnimeTrailerCollectionViewCellViewModel)
         case information(viewModel: TopAnimeInformationCollectionViewCellViewModel)
-        case raiting(viewModel: TopAnimeRaitingCollectionViewCellViewModel)
-        case studio(viewModel: TopAnimeStudioCollectionViewCellViewModel)
         case description(viewModel: TopAnimeDescriptionCollectionViewCellViewModel)
-        case producers(viewModel: TopAnimeProducersCollectionViewCellViewModel)
     }
     
     public var sections: [SectionType] = []
@@ -30,7 +27,7 @@ final class TopAnimeDetailViewViewModel {
     
     private func setupSections() {
         guard let imageUrl = anime.images?.jpg?.largeImageURL else { return }
-        guard let trailerID = anime.trailer?.youtubeID else { return }
+        let trailerID = anime.trailer?.youtubeID ?? "xvFZjo5PgG0"
         let type = anime.type ?? ""
         let episodes = anime.episodes ?? 0
         let duration = anime.duration ?? ""
@@ -50,19 +47,15 @@ final class TopAnimeDetailViewViewModel {
         guard let producers = anime.producers else { return }
         
         sections = [
-            .photo(viewModel: .init(imageUrl: URL(string: imageUrl), animeName: titleDefault, genres: genres, year: year, type: type)),
+            .photo(viewModel: .init(imageUrl: URL(string: imageUrl), animeName: titleDefault, genres: genres, year: year, type: type, score: score, scoredBy: scoredBy)),
             .description(viewModel: .init(description: description)),
             .trailer(viewModel: .init(trailerID: trailerID)),
-            .information(viewModel: .init(episodes: episodes, duration: duration, status: status, source: source, titleEnglish: titleEnglish, titleJapanese: titleJapanese, rating: rating)),
-            .raiting(viewModel: .init(score: score, scoredBy: scoredBy, rank: rank)),
-            .studio(viewModel: .init(studios: studios)),
-            .producers(viewModel: .init(producers: producers))
+            .information(viewModel: .init(episodes: episodes, duration: duration, status: status, source: source, titleEnglish: titleEnglish, titleJapanese: titleJapanese, rating: rating, genres: genres, rank: rank, studios: studios, producers: producers)),
         ]
         
         sectionTitles = [
             "Trailer",
             "Information",
-            "Rating",
             "Studio",
             "Description",
             "Producers"
@@ -99,7 +92,7 @@ final class TopAnimeDetailViewViewModel {
                 heightDimension: .fractionalHeight(1.0)
             )
         )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0)
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
@@ -123,45 +116,7 @@ final class TopAnimeDetailViewViewModel {
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(150)
-            ),
-            subitems: [item]
-        )
-        let section = NSCollectionLayoutSection(group: group)
-        return section
-    }
-    
-    public func createRaitingSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
-            )
-        )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(150)
-            ),
-            subitems: [item]
-        )
-        let section = NSCollectionLayoutSection(group: group)
-        return section
-    }
-    
-    public func createStudioSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
-            )
-        )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(150)
+                heightDimension: .absolute(340)
             ),
             subitems: [item]
         )
@@ -181,25 +136,6 @@ final class TopAnimeDetailViewViewModel {
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .absolute(150)
-            ),
-            subitems: [item]
-        )
-        let section = NSCollectionLayoutSection(group: group)
-        return section
-    }
-    
-    public func createProducersSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
-            )
-        )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(200)
             ),
             subitems: [item]
         )

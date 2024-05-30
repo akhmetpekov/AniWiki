@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-AniWiki/Pods-AniWiki-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
+${BUILT_PRODUCTS_DIR}/SwiftyStarRatingView/SwiftyStarRatingView.framework
 ${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework

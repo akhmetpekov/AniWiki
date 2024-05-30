@@ -59,9 +59,6 @@ final class TopAnimeDetailView: UIView {
         collectionView.register(TopAnimeDescriptionCollectionViewCell.self, forCellWithReuseIdentifier: TopAnimeDescriptionCollectionViewCell.identifier)
         collectionView.register(TopAnimeTrailerCollectionViewCell.self, forCellWithReuseIdentifier: TopAnimeTrailerCollectionViewCell.identifier)
         collectionView.register(TopAnimeInformationCollectionViewCell.self, forCellWithReuseIdentifier: TopAnimeInformationCollectionViewCell.identifier)
-        collectionView.register(TopAnimeRaitingCollectionViewCell.self, forCellWithReuseIdentifier: TopAnimeRaitingCollectionViewCell.identifier)
-        collectionView.register(TopAnimeStudioCollectionViewCell.self, forCellWithReuseIdentifier: TopAnimeStudioCollectionViewCell.identifier)
-        collectionView.register(TopAnimeProducersCollectionViewCell.self, forCellWithReuseIdentifier: TopAnimeProducersCollectionViewCell.identifier)
         collectionView.register(TopAnimeSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TopAnimeSectionHeader.identifier)
         collectionView.backgroundColor = Resources.Colors.primaryBackgroundColor
         collectionView.showsVerticalScrollIndicator = false
@@ -81,12 +78,6 @@ final class TopAnimeDetailView: UIView {
             section = viewModel.createTrailerSection()
         case .information:
             section = viewModel.createInformationSection()
-        case .raiting:
-            section = viewModel.createRaitingSection()
-        case .studio:
-            section = viewModel.createStudioSection()
-        case .producers:
-            section = viewModel.createProducersSection()
         }
         
         if sectionIndex != 0 {

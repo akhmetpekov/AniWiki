@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 protocol TopAnimeListViewDelegate: AnyObject {
     func topAnimeListView(_ topAnimeListView: TopAnimeListView, didSelectAnime anime: Top)
@@ -32,6 +33,7 @@ final class TopAnimeListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.register(TopAnimeCollectionViewCell.self, forCellWithReuseIdentifier: TopAnimeCollectionViewCell.cellIdentifier)
+        collectionView.register(TopAnimeSearchBar.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TopAnimeSearchBar.identifier)
         collectionView.register(FooterLoadingCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterLoadingCollectionReusableView.identifier)
         return collectionView
     }()
@@ -41,6 +43,7 @@ final class TopAnimeListView: UIView {
         setupUI()
         configureConstraints()
         setupCollectionView()
+        setupSearchSubscription()
         viewModel.delegate = self
     }
     
@@ -72,6 +75,16 @@ final class TopAnimeListView: UIView {
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel
     }
+    
+    private func setupSearchSubscription() {
+        viewModel.searchTextPublisher
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .removeDuplicates()
+            .sink { [weak self] searchText in
+                self?.viewModel.fetchSearchResultsAnime(query: searchText)
+            }
+            .store(in: &viewModel.cancellables)
+    }
 }
 
 extension TopAnimeListView: TopListViewViewModelDelegate {
@@ -92,6 +105,10 @@ extension TopAnimeListView: TopListViewViewModelDelegate {
         collectionView.performBatchUpdates {
             self.collectionView.insertItems(at: newIndexPaths)
         }
+    }
+    
+    func didLoadSearchAnime() {
+        collectionView.reloadData()
     }
     
 }

@@ -7,11 +7,13 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol TopListViewViewModelDelegate: AnyObject {
     func didLoadTopAnime()
     func didLoadMoreCharacters(with newIndexPaths: [IndexPath])
     func didSelectAnime(_ anime: Top)
+    func didLoadSearchAnime()
 }
 
 final class TopListViewViewModel: NSObject {
@@ -19,10 +21,14 @@ final class TopListViewViewModel: NSObject {
     public weak var delegate: TopListViewViewModelDelegate?
     
     private var isLoadingMoreTopAnime = false
+    private var isSearching = false
+    var cancellables: Set<AnyCancellable> = []
+    
+    var searchTextPublisher = PassthroughSubject<String, Never>()
     
     private var animes: [Top] = [] {
         didSet {
-            for (index, anime) in animes.enumerated() {
+            for anime in animes {
                 guard let animeTitle = anime.title else {
                     continue
                 }
@@ -31,7 +37,14 @@ final class TopListViewViewModel: NSObject {
                     continue
                 }
                 
-                let viewModel = TopCollectionViewCellViewModel(animeTitle: animeTitle, animeImageURL: URL(string: animeURL), topNumber: "\(index+1)")
+                let rank: String
+                if let animeRank = anime.rank {
+                    rank = "\(animeRank)"
+                } else {
+                    rank = "?"
+                }
+                
+                let viewModel = TopCollectionViewCellViewModel(animeTitle: animeTitle, animeImageURL: URL(string: animeURL), topNumber: rank)
                 if !cellViewModels.contains(viewModel) {
                     cellViewModels.append(viewModel)
                 }
@@ -65,6 +78,9 @@ final class TopListViewViewModel: NSObject {
     }
     
     public func fetchAdditionalTopAnime() {
+        if isSearching == true {
+            return
+        }
         guard !isLoadingMoreTopAnime else {
             return
         }
@@ -108,6 +124,40 @@ final class TopListViewViewModel: NSObject {
         }
     }
     
+    
+    
+    public func fetchSearchResultsAnime(query: String) {
+        guard !query.isEmpty else {
+            isSearching = false
+            self.cellViewModels.removeAll()
+            fetchTopAnime()
+            return
+        }
+        isSearching = true
+        
+        guard let request = Request(
+            endpoint: .anime,
+            queryParametes: [URLQueryItem(name: "q", value: query)]
+        ) else {
+            return
+        }
+        Service.shared.execute(request, expecting: GetAllTop.self) { [weak self] result in
+            switch result {
+            case .success(let responseModel):
+                let results = responseModel.data
+                let info = responseModel.pagination
+                self?.cellViewModels.removeAll()
+                self?.apiInfo = info
+                self?.animes = results
+                DispatchQueue.main.async {
+                    self?.delegate?.didLoadSearchAnime()
+                }
+            case .failure(let failure):
+                print(String(describing: failure))
+            }
+        }
+    }
+    
     public var shouldShowLoadMoreIndicator: Bool {
         guard let hasNextPage = apiInfo?.hasNextPage else { return false }
         return hasNextPage
@@ -132,19 +182,39 @@ extension TopListViewViewModel: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionFooter else {
+        guard kind == UICollectionView.elementKindSectionFooter || kind == UICollectionView.elementKindSectionHeader else {
             fatalError()
         }
         
-        guard let footer = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: FooterLoadingCollectionReusableView.identifier,
-            for: indexPath
-        ) as? FooterLoadingCollectionReusableView else {
-            fatalError()
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: TopAnimeSearchBar.identifier,
+                for: indexPath
+            ) as? TopAnimeSearchBar else {
+                fatalError()
+            }
+            
+            header.textPublisher
+                .sink { [weak self] searchText in
+                    self?.searchTextPublisher.send(searchText)
+                }
+                .store(in: &cancellables)
+            return header
+        case UICollectionView.elementKindSectionFooter:
+            guard let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: FooterLoadingCollectionReusableView.identifier,
+                for: indexPath
+            ) as? FooterLoadingCollectionReusableView else {
+                fatalError()
+            }
+            footer.startAnimating()
+            return footer
+        default:
+            assert(false, "Unexpected element kind")
         }
-        footer.startAnimating()
-        return footer
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
@@ -152,6 +222,10 @@ extension TopListViewViewModel: UICollectionViewDataSource, UICollectionViewDele
             return .zero
         }
         return CGSize(width: collectionView.frame.width, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 60)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -170,7 +244,8 @@ extension TopListViewViewModel: UICollectionViewDataSource, UICollectionViewDele
 
 extension TopListViewViewModel: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard shouldShowLoadMoreIndicator, !isLoadingMoreTopAnime, !cellViewModels.isEmpty  else {
+        
+        guard shouldShowLoadMoreIndicator, !isLoadingMoreTopAnime, !cellViewModels.isEmpty else {
             return
         }
         Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] t in

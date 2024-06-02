@@ -14,6 +14,7 @@ final class TopViewController: UIViewController, TopAnimeListViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         view.backgroundColor = Resources.Colors.tabbarBackgroundColor
         setupUI()
         configureConstraints()

@@ -27,7 +27,7 @@ final class TopAnimeDetailViewViewModel {
     
     private func setupSections() {
         guard let imageUrl = anime.images?.jpg?.largeImageURL else { return }
-        let trailerID = anime.trailer?.youtubeID ?? "xvFZjo5PgG0"
+        let trailerID = anime.trailer?.youtubeID ?? ""
         let type = anime.type ?? ""
         let episodes = anime.episodes ?? 0
         let duration = anime.duration ?? ""
@@ -46,20 +46,27 @@ final class TopAnimeDetailViewViewModel {
         let description = anime.synopsis ?? ""
         guard let producers = anime.producers else { return }
         
-        sections = [
-            .photo(viewModel: .init(imageUrl: URL(string: imageUrl), animeName: titleDefault, genres: genres, year: year, type: type, score: score, scoredBy: scoredBy)),
-            .description(viewModel: .init(description: description)),
-            .trailer(viewModel: .init(trailerID: trailerID)),
-            .information(viewModel: .init(episodes: episodes, duration: duration, status: status, source: source, titleEnglish: titleEnglish, titleJapanese: titleJapanese, rating: rating, genres: genres, rank: rank, studios: studios, producers: producers)),
-        ]
+        sections.append(.photo(viewModel: .init(imageUrl: URL(string: imageUrl), animeName: titleDefault, genres: genres, year: year, type: type, score: score, scoredBy: scoredBy)))
+
+        if !description.isEmpty {
+            sections.append(.description(viewModel: .init(description: description)))
+        }
         
-        sectionTitles = [
-            "Trailer",
-            "Information",
-            "Studio",
-            "Description",
-            "Producers"
-        ]
+        if !trailerID.isEmpty {
+            sections.append(.trailer(viewModel: .init(trailerID: trailerID)))
+        }
+        sections.append(.information(viewModel: .init(episodes: episodes, duration: duration, status: status, source: source, titleEnglish: titleEnglish, titleJapanese: titleJapanese, rating: rating, genres: genres, rank: rank, studios: studios, producers: producers)))
+        
+        if !description.isEmpty {
+            sectionTitles.append("Description")
+        }
+        
+        if !trailerID.isEmpty {
+            sectionTitles.append("Trailer")
+        }
+        
+        sectionTitles.append("Information")
+        
     }
     
     public var title: String? {

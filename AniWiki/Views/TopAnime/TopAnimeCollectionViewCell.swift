@@ -34,7 +34,7 @@ final class TopAnimeCollectionViewCell: UICollectionViewCell {
     private let topNumber: UILabel = {
         let label = UILabel()
         label.textColor = Resources.Colors.primaryTintColor
-        label.font = .systemFont(ofSize: 14, weight: .bold)
+        label.font = .systemFont(ofSize: 12, weight: .semibold)
         label.backgroundColor = .white
         label.textAlignment = .center
         return label

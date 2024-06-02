@@ -214,8 +214,13 @@ class TopAnimeInformationCollectionViewCell: UICollectionViewCell {
         
         let secondaryTextColor = Resources.Colors.primaryTintColor
         
-        let rankText = "Rank: #\(viewModel.rank)"
-        rankLabel.labelChange(For: rankText, color: secondaryTextColor, from: 5, to: rankText.count - 5)
+        if viewModel.rank == 0 {
+            let rankText = "Rank: #?"
+            rankLabel.labelChange(For: rankText, color: secondaryTextColor, from: 5, to: rankText.count - 5)
+        } else {
+            let rankText = "Rank: #\(viewModel.rank)"
+            rankLabel.labelChange(For: rankText, color: secondaryTextColor, from: 5, to: rankText.count - 5)
+        }
         
         let episodesText = "Episodes: \(viewModel.episodes)"
         episodesLabel.labelChange(For: episodesText, color: secondaryTextColor, from: 9, to: episodesText.count - 9)

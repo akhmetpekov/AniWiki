@@ -34,7 +34,7 @@ final class TopViewController: UIViewController, TopAnimeListViewDelegate {
         }
     }
     
-    func topAnimeListView(_ topAnimeListView: TopAnimeListView, didSelectAnime anime: Top) {
+    func topAnimeListView(_ topAnimeListView: TopAnimeListView, didSelectAnime anime: UniObject) {
         let viewModel = TopAnimeDetailViewViewModel(anime: anime)
         let detailVC = TopAnimeDetailViewController(viewModel: viewModel)
         navigationController?.pushViewController(detailVC, animated: true)

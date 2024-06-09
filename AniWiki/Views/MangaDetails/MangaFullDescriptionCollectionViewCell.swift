@@ -1,23 +1,22 @@
 //
-//  TopAnimeDescriptionCollectionViewCell.swift
+//  MangaFullDescriptionCollectionViewCell.swift
 //  AniWiki
 //
-//  Created by Erik on 23.05.2024.
+//  Created by Erik on 06.06.2024.
 //
 
 import UIKit
 import SnapKit
 
-class TopAnimeDescriptionCollectionViewCell: UICollectionViewCell {
-    static let identifier = "TopAnimeDescriptionCollectionViewCell"
-    
-    private var viewBounds = CGRect()
+class MangaFullDescriptionCollectionViewCell: UICollectionViewCell {
+    static let identifier = "MangaFullDescriptionCollectionViewCell"
     
     private let descriptionTextView: UITextView = {
         let textView = UITextView()
-        textView.textColor = Resources.Colors.secondaryTextColor
+        textView.textColor = .white
         textView.alpha = 0.6
         textView.isEditable = false
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         textView.backgroundColor = .clear
         textView.isScrollEnabled = false
         textView.showsVerticalScrollIndicator = false
@@ -41,11 +40,6 @@ class TopAnimeDescriptionCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupUI()
         configureConstraints()
-        viewBounds = self.bounds
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupUI() {
@@ -57,33 +51,27 @@ class TopAnimeDescriptionCollectionViewCell: UICollectionViewCell {
         descriptionTextView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             descriptionTextViewHeightConstraint = make.height.equalTo(130).constraint
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.equalToSuperview().offset(5)
+            make.trailing.equalToSuperview().offset(-5)
         }
         
         furtherButton.snp.makeConstraints { make in
             make.top.equalTo(descriptionTextView.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(5)
             make.width.equalTo(70)
             make.height.equalTo(20)
         }
     }
     
-//    @objc private func makeDescriptionTextViewLarger() {
-//        let size = descriptionTextView.sizeThatFits(CGSize(width: descriptionTextView.frame.width, height: CGFloat.greatestFiniteMagnitude))
-//        descriptionTextViewHeightConstraint?.update(offset: size.height)
-//        furtherButton.isHidden = false  // Optionally hide the button after expanding
-//        delegate?.reloadCell(self)
-//    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
-        descriptionTextView.text = nil
-        furtherButton.isHidden = false  // Reset the button visibility
-//        descriptionTextViewHeightConstraint?.update(offset: 130)  // Reset to initial height
     }
     
-    public func configure(with viewModel: TopAnimeDescriptionCollectionViewCellViewModel) {
-        descriptionTextView.text = viewModel.getDescription()
+    public func configure(with viewModel: MangaFullDescriptionCollectionViewCellViewModel) {
+        descriptionTextView.text = viewModel.synopsis
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

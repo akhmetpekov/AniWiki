@@ -8,6 +8,7 @@
 import UIKit
 
 final class TopAnimeDetailViewController: UIViewController {
+    
     private let viewModel: TopAnimeDetailViewViewModel
     
     private let detailView: TopAnimeDetailView

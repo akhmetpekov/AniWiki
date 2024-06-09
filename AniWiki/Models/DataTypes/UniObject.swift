@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - Top
-struct Top: Codable {
+struct UniObject: Codable {
     let malID: Int?
     let url: String?
     let images: Image?

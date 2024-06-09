@@ -17,7 +17,6 @@ class TopAnimePhotoCollectionViewCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .systemRed
         imageView.clipsToBounds = true
         return imageView
     }()

@@ -34,5 +34,5 @@ struct GetAllTop: Codable {
 
     
     let pagination: Pagination
-    let data: [Top]
+    let data: [UniObject]
 }

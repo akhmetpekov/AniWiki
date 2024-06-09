@@ -8,7 +8,7 @@
 import Foundation
 
 enum Endpoint: String {
-    case character
+    case manga
     case top
     case anime
 }

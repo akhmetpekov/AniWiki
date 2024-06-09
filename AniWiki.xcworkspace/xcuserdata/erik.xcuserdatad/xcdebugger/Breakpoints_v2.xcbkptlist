@@ -14,10 +14,10 @@
             filePath = "AniWiki/ViewModels/TopListViewViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "TopListViewViewModel"
-            landmarkType = "3">
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "animes"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

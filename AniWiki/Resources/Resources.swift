@@ -16,5 +16,13 @@ enum Resources {
         static var secondaryTextColor = UIColor(hexString: "#FFFFFF")
         static var scoreColor = UIColor(hexString: "#E8D423")
     }
+    
+    enum Fonts {
+        static var AntonioBold: String = "Antonio-Bold"
+        static var PoppinsRegular: String = "Poppins-Regular"
+        static var PoppinsBold: String = "Poppins-Bold"
+        static var PoppinsSemibold: String = "Poppins-SemiBold"
+        static var PoppinsLight: String = "Poppins-Light"
+    }
 }
 

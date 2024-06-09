@@ -8,19 +8,19 @@
 import UIKit
 
 final class TopAnimeDetailViewViewModel {
-    private let anime: Top
+    private let anime: UniObject
     
-    enum SectionType {
+    enum AnimeDetailSectionType {
         case photo(viewModel: TopAnimePhotoCollectionViewCellViewModel)
         case trailer(viewModel: TopAnimeTrailerCollectionViewCellViewModel)
         case information(viewModel: TopAnimeInformationCollectionViewCellViewModel)
         case description(viewModel: TopAnimeDescriptionCollectionViewCellViewModel)
     }
     
-    public var sections: [SectionType] = []
+    public var sections: [AnimeDetailSectionType] = []
     public var sectionTitles: [String] = []
     
-    init(anime: Top) {
+    init(anime: UniObject) {
         self.anime = anime
         setupSections()
     }
@@ -30,7 +30,7 @@ final class TopAnimeDetailViewViewModel {
         let trailerID = anime.trailer?.youtubeID ?? ""
         let type = anime.type ?? ""
         let episodes = anime.episodes ?? 0
-        let duration = anime.duration ?? ""
+        let duration = anime.duration ?? ""	
         let status = anime.status ?? ""
         let source = anime.source ?? ""
         let rating = anime.rating ?? ""
@@ -123,7 +123,7 @@ final class TopAnimeDetailViewViewModel {
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(340)
+                heightDimension: .estimated(340)
             ),
             subitems: [item]
         )
@@ -132,21 +132,23 @@ final class TopAnimeDetailViewViewModel {
     }
     
     public func createDescriptionSection() -> NSCollectionLayoutSection {
+        let heightDimension = NSCollectionLayoutDimension.estimated(150)
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
+                heightDimension: heightDimension
             )
         )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
-        let group = NSCollectionLayoutGroup.vertical(
+//        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
+        let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(150)
+                heightDimension: heightDimension
             ),
             subitems: [item]
         )
         let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
         return section
     }
     

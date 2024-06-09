@@ -10,7 +10,7 @@ import SnapKit
 import Combine
 
 protocol TopAnimeListViewDelegate: AnyObject {
-    func topAnimeListView(_ topAnimeListView: TopAnimeListView, didSelectAnime anime: Top)
+    func topAnimeListView(_ topAnimeListView: TopAnimeListView, didSelectAnime anime: UniObject)
 }
 
 final class TopAnimeListView: UIView {
@@ -88,7 +88,7 @@ final class TopAnimeListView: UIView {
 }
 
 extension TopAnimeListView: TopListViewViewModelDelegate {
-    func didSelectAnime(_ anime: Top) {
+    func didSelectAnime(_ anime: UniObject) {
         delegate?.topAnimeListView(self, didSelectAnime: anime)
     }
     

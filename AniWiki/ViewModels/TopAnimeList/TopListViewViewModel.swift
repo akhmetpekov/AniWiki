@@ -12,7 +12,7 @@ import Combine
 protocol TopListViewViewModelDelegate: AnyObject {
     func didLoadTopAnime()
     func didLoadMoreCharacters(with newIndexPaths: [IndexPath])
-    func didSelectAnime(_ anime: Top)
+    func didSelectAnime(_ anime: UniObject)
     func didLoadSearchAnime()
 }
 
@@ -23,10 +23,13 @@ final class TopListViewViewModel: NSObject {
     private var isLoadingMoreTopAnime = false
     private var isSearching = false
     var cancellables: Set<AnyCancellable> = []
+    private var cellViewModels: [TopCollectionViewCellViewModel] = []
+    
+    private var apiInfo: GetAllTop.Pagination? = nil
     
     var searchTextPublisher = PassthroughSubject<String, Never>()
     
-    private var animes: [Top] = [] {
+    private var animes: [UniObject] = [] {
         didSet {
             for anime in animes {
                 guard let animeTitle = anime.title else {
@@ -51,10 +54,6 @@ final class TopListViewViewModel: NSObject {
             }
         }
     }
-    
-    private var cellViewModels: [TopCollectionViewCellViewModel] = []
-    
-    private var apiInfo: GetAllTop.Pagination? = nil
     
     public func fetchTopAnime() {
         guard let listTopRequests = Request.listTopRequests else {

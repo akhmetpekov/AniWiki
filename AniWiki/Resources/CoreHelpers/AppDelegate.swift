@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    private var preloadPlayerView: YTPlayerView?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        preloadYouTubePlayer()
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = Resources.Colors.tabbarBackgroundColor
@@ -24,6 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         UITabBar.appearance().isTranslucent = false
         return true
+    }
+    
+    private func preloadYouTubePlayer() {
+        preloadPlayerView = YTPlayerView()
+        preloadPlayerView?.load(withVideoId: "dQw4w9WgXcQ")
     }
 
     // MARK: UISceneSession Lifecycle

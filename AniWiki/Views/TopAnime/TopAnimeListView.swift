@@ -101,7 +101,7 @@ extension TopAnimeListView: TopListViewViewModelDelegate {
         }
     }
     
-    func didLoadMoreCharacters(with newIndexPaths: [IndexPath]) {
+    func didLoadMoreAnime(with newIndexPaths: [IndexPath]) {
         collectionView.performBatchUpdates {
             self.collectionView.insertItems(at: newIndexPaths)
         }

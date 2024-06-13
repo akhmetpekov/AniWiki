@@ -49,7 +49,7 @@ struct MangaFull: Codable {
     let chapters, volumes: Int?
     let status: String?
     let publishing: Bool?
-    let published: Published?
+    let published: MangaPublished?
     let score, scored: Double?
     let scoredBy, rank, popularity, members: Int?
     let favorites: Int?
@@ -127,7 +127,7 @@ struct MangaFullWebp: Codable {
 }
 
 // MARK: - Published
-struct Published: Codable {
+struct MangaPublished: Codable {
     let from, to: String?
     let prop: MangaFullProp?
     let string: String?

@@ -11,4 +11,5 @@ enum Endpoint: String {
     case manga
     case top
     case anime
+    case random
 }

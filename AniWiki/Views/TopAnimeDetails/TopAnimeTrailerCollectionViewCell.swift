@@ -17,7 +17,7 @@ class TopAnimeTrailerCollectionViewCell: UICollectionViewCell {
         return spinner
     }()
     
-    private var videoPlayer: YTPlayerView = {
+    private lazy var videoPlayer: YTPlayerView = {
         let player = YTPlayerView()
         return player
     }()

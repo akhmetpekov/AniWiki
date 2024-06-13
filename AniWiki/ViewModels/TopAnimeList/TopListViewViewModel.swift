@@ -11,7 +11,7 @@ import Combine
 
 protocol TopListViewViewModelDelegate: AnyObject {
     func didLoadTopAnime()
-    func didLoadMoreCharacters(with newIndexPaths: [IndexPath])
+    func didLoadMoreAnime(with newIndexPaths: [IndexPath])
     func didSelectAnime(_ anime: UniObject)
     func didLoadSearchAnime()
 }
@@ -113,7 +113,7 @@ final class TopListViewViewModel: NSObject {
                 })
                 strongSelf.animes.append(contentsOf: moreResults)
                 DispatchQueue.main.async {
-                    strongSelf.delegate?.didLoadMoreCharacters(with: indexPathsToAdd)
+                    strongSelf.delegate?.didLoadMoreAnime(with: indexPathsToAdd)
                     strongSelf.isLoadingMoreTopAnime = false
                 }
             case .failure(let failure):

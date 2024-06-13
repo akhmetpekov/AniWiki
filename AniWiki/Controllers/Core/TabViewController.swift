@@ -18,20 +18,20 @@ final class TabViewController: UITabBarController {
     private func configureTabs() {
         let vc1 = MangaViewController()
         let vc2 = TopViewController()
-        let vc3 = CharactersViewController()
+        let vc3 = GameViewController()
         
         //Set tab bar items images
         vc1.tabBarItem.image = UIImage(systemName: "book.pages")
         vc2.tabBarItem.image = UIImage(systemName: "star.fill")
-        vc3.tabBarItem.image = UIImage(systemName: "figure.cooldown")
+        vc3.tabBarItem.image = UIImage(systemName: "gamecontroller")
         
         //Set Title
         vc1.tabBarItem.title = "Manga"
         vc2.tabBarItem.title = "Top"
-        vc3.tabBarItem.title = "Characters"
+        vc3.tabBarItem.title = "Game"
         vc1.title = "Manga"
         vc2.title = "Top"
-        vc3.title = "Characters"
+        vc3.title = "Game"
         
         let nav1 = UINavigationController(rootViewController: vc1)
         let nav2 = UINavigationController(rootViewController: vc2)

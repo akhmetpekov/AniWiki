@@ -62,4 +62,5 @@ extension Request {
     static let listTopRequests = Request(endpoint: .top, pathComponents: ["anime"], queryParametes: [URLQueryItem(name: "page", value: "1")])
     static let listMangaRecommendations = Request(endpoint: .manga, pathComponents: ["1", "recommendations"])
     static let listTopMangaRequests = Request(endpoint: .top, pathComponents: ["manga"], queryParametes: [URLQueryItem(name: "page", value: "1")])
+    static let randomAnime = Request(endpoint: .random, pathComponents: ["anime"])
 }
